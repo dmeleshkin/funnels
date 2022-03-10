@@ -30,4 +30,4 @@ date = pastMidnight() - datetime.timedelta(days = 1)
 if len(sys.argv) > 1:
       date = datetime.datetime.strptime(sys.argv[1], "%Y-%m-%d")
 
-loadEvents(date, events)
+loadEvents(date, events, "bonds")

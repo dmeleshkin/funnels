@@ -3,7 +3,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 	
-def loadEvents(date, events):
+def loadEvents(date, events, workingdir):
 	def getToken() -> str:
 		with open("settings/.token") as f:
 			return f.read().strip()
@@ -54,7 +54,7 @@ def loadEvents(date, events):
 		print(f"\n\n{date} start loading... {tries} try...\n\n")
 
 		for platform in events:
-			path = buildPath(f"data/bonds/{date:%Y%m%d}/{platform}_events")
+			path = buildPath(f"{workingdir}/{date:%Y%m%d}/{platform}_events")
 			for event_name, _ in events[platform]:
 				event_file = f"{path}/{event_name}.csv"
 				if not os.path.exists(event_file):
@@ -77,7 +77,7 @@ def loadEvents(date, events):
 
 	if fails == 0:
 		# Comress data and remove sources
-		datapath = f"data/bonds/{date:%Y%m%d}"
-		shutil.make_archive(f"data/bonds/events{date:%Y%m%d}", 'zip', datapath)
+		datapath = f"{workingdir}/{date:%Y%m%d}"
+		shutil.make_archive(f"{workingdir}/events{date:%Y%m%d}", 'zip', datapath)
 		shutil.rmtree(datapath)
 
