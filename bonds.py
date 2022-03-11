@@ -1,4 +1,4 @@
-import datetime
+import sys, datetime
 from loadevents import loadEvents
 from common import pastMidnight
 
@@ -31,3 +31,4 @@ if len(sys.argv) > 1:
       date = datetime.datetime.strptime(sys.argv[1], "%Y-%m-%d")
 
 loadEvents(date, events, "bonds")
+
