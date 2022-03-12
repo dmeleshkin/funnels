@@ -1,6 +1,6 @@
 import sys, datetime
 from loadevents import loadEvents
-from common import pastMidnight
+from common import datesRange
 
 events = {
 	"android": [
@@ -26,23 +26,18 @@ events = {
 	]
 }
 
-def datesRange(start: datetime, finish: datetime, delta = datetime.timedelta(days = 1)):
-      while start >= finish:
-            yield start
-            start -= delta
 
-for date in datesRange(datetime.datetime(2022, 3, 9), datetime.datetime(2022, 1, 20)):
-      zippath = f"../yambroFunnelOpenDaily/data/bonds/{date:%Y%m%d}.zip"
+for date in datesRange(datetime.datetime(2022, 3, 6), datetime.datetime(2022, 1, 20)):
+      zippath = f"../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}.zip"
       if os.path.exists(zippath):
-            os.system(f"unzip {zippath}")
-            os.remove(zippath)
+            os.system(f"unzip {zippath} -d ../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}/")
 
       for platform in events:
-            pfolder = f"../yambroFunnelOpenDaily/data/bonds/{date:%Y%m%d}/{platform}_events"
+            pfolder = f"../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}/{platform}_events"
             if os.path.exists(pfolder):
                   for f in os.listdir(pfolder):
                         fname = f.split("/")[-1]
-                        print(fname)
+                        print(f"{f}\t\t{fname}")
 
       # loadEvents(date, events, "../yambroFunnelOpenDaily/data/bonds")
 
