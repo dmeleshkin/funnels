@@ -41,8 +41,8 @@ for date in datesRange(datetime.datetime(2022, 3, 6), datetime.datetime(2022, 1,
             pfolder = f"../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}/{platform}_events"
             if os.path.exists(pfolder):
                   for fname in os.listdir(pfolder):
-                        if isFileInList(fname, events[platform]):
-                              print(f"{fname}")
+                        # if isFileInList(fname, events[platform]):
+                        print(f"{fname}")
 
       # loadEvents(date, events, "../yambroFunnelOpenDaily/data/bonds")
 
