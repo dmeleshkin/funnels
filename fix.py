@@ -29,8 +29,8 @@ events = {
 def isFileInList(fname, flist):
       for f, _ in flist:
             if f == fname:
-                  return true
-      return false
+                  return True
+      return False
 
 for date in datesRange(datetime.datetime(2022, 3, 6), datetime.datetime(2022, 1, 20)):
       # zippath = f"../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}.zip"
