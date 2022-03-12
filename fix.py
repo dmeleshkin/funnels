@@ -1,4 +1,4 @@
-import sys, datetime
+import os, datetime
 from loadevents import loadEvents
 from common import datesRange
 
