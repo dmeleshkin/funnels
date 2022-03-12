@@ -26,24 +26,24 @@ events = {
 	]
 }
 
-def isFileInList(fname, flist):
-      for f, _ in flist:
-            if fname.startswith(f):
-                  return True
-      return False
+# def isFileInList(fname, flist):
+#       for f, _ in flist:
+#             if fname.startswith(f):
+#                   return True
+#       return False
 
-for date in datesRange(datetime.datetime(2022, 3, 6), datetime.datetime(2022, 1, 20)):
+for date in datesRange(datetime.datetime(2022, 3, 9), datetime.datetime(2022, 1, 20)):
       # zippath = f"../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}.zip"
       # if os.path.exists(zippath):
       #       os.system(f"unzip {zippath} -d ../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}/")
 
-      for platform in events:
-            pfolder = f"../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}/{platform}_events"
-            if os.path.exists(pfolder):
-                  for fname in os.listdir(pfolder):
-                        if not isFileInList(fname, events[platform]):
-                              os.remove(f"{pfolder}/{fname}")
-                              print(f"Removed file: {pfolder}/{fname}")
+      # for platform in events:
+      #       pfolder = f"../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}/{platform}_events"
+      #       if os.path.exists(pfolder):
+      #             for fname in os.listdir(pfolder):
+      #                   if not isFileInList(fname, events[platform]):
+      #                         os.remove(f"{pfolder}/{fname}")
+      #                         print(f"Removed file: {pfolder}/{fname}")
 
-      # loadEvents(date, events, "../yambroFunnelOpenDaily/data/bonds")
+      loadEvents(date, events, "../yambroFunnelOpenDaily/data/bonds")
 
