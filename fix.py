@@ -28,7 +28,6 @@ events = {
 
 def isFileInList(fname, flist):
       for f, _ in flist:
-            print(f"{f}\n{fname}\n\n")
             if fname.startswith(f):
                   return True
       return False
