@@ -1,4 +1,4 @@
-import sys, os, requests, datetime, time, shutil
+import os, requests, datetime, time, shutil
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)

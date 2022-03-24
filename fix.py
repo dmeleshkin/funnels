@@ -32,7 +32,8 @@ events = {
 #                   return True
 #       return False
 
-for date in datesRange(datetime.datetime(2022, 3, 9), datetime.datetime(2022, 1, 20)):
+for date in datesRange(datetime.datetime(2022, 3, 5), datetime.datetime(2022, 2, 1)):
+      print(f"mv events{date:%Y%m%d} {date:%Y%m%d}")
       # zippath = f"../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}.zip"
       # if os.path.exists(zippath):
       #       os.system(f"unzip {zippath} -d ../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}/")
@@ -45,5 +46,5 @@ for date in datesRange(datetime.datetime(2022, 3, 9), datetime.datetime(2022, 1,
       #                         os.remove(f"{pfolder}/{fname}")
       #                         print(f"Removed file: {pfolder}/{fname}")
 
-      loadEvents(date, events, "../yambroFunnelOpenDaily/data/bonds")
+      # loadEvents(date, events, "../yambroFunnelOpenDaily/data/bonds")
 
