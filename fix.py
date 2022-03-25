@@ -32,8 +32,10 @@ events = {
 #                   return True
 #       return False
 
-for date in datesRange(datetime.datetime(2022, 3, 5), datetime.datetime(2022, 2, 1)):
-      print(f"mv events{date:%Y%m%d} {date:%Y%m%d}")
+for date in datesRange(datetime.datetime(2022, 3, 23), datetime.datetime(2022, 2, 1)):
+      # print(f"mv events{date:%Y%m%d} {date:%Y%m%d}")
+      os.system(f"python3 bonds.py {date:%Y-%m-%d} >> data/loading.log")
+
       # zippath = f"../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}.zip"
       # if os.path.exists(zippath):
       #       os.system(f"unzip {zippath} -d ../yambroFunnelOpenDaily/data/bonds/events{date:%Y%m%d}/")
