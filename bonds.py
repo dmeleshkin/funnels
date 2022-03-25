@@ -37,8 +37,6 @@ date = pastMidnight() - datetime.timedelta(days = 1)
 if len(sys.argv) > 1:
       date = datetime.datetime.strptime(sys.argv[1], "%Y-%m-%d")
 
-date = datetime.datetime(2022, 3, 12)
-
 # Events archive
 evarc = f"bonds/events{date:%Y%m%d}.zip"
 # Load events
