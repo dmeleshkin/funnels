@@ -115,3 +115,8 @@ def buildFunnel(events, date):
 funnel = buildFunnel(events, date)
 with ZipFile(f"bonds/funnel{date:%Y%m}.zip", "a", ZIP_DEFLATED) as z:
       z.writestr(f"{date:%d}", json.dumps(funnel, separators=(',', ':')))
+
+# Build funnel report and send it
+os.system(f"python3 reposell.py {date:%Y-%m-%d} >> data/loading.log")
+# os.system(f"python3 yambroSendReport.py {date:%Y-%m-%d} >> data/loading.log")
+
