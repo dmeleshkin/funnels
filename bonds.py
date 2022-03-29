@@ -15,7 +15,7 @@ events = {
                 ("Brokerage CreateTradeOrderBuyApplicationV2 LockCheckAgreement Show", 1),
                 ("Brokerage CreateTradeOrderBuyApplicationV2 LockCheckAgreement createShortApplication Click", 2),
                 ("Brokerage CreateTradeOrderBuyApplicationV2 OrderParameters Show", 3),
-                ("Brokerage СreateTradeOrderBuyApplicationV2 OrderParameters ValidationFail", 4),
+                ("Brokerage CreateTradeOrderBuyApplicationV2 OrderParameters ValidationFail", 4),
                 ("Brokerage CreateTradeOrderBuyApplicationV2 OrderParameters transfer Click", 5),
                 ("Brokerage CreateTradeOrderBuyApplicationV2 Confirm Show", 6),
                 ("Brokerage CreateTradeOrderBuyApplicationV2 ConfirmExitTOBuy Show", 7)
