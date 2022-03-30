@@ -39,6 +39,7 @@ if len(sys.argv) > 1:
 
 # Events archive
 evarc = f"bonds/events{date:%Y%m%d}.zip"
+
 # Load events
 if not os.path.exists(evarc):
       loadEvents(date, events, "bonds")
@@ -118,5 +119,9 @@ with ZipFile(f"bonds/funnel{date:%Y%m}.zip", "a", ZIP_DEFLATED) as z:
 
 # Build funnel report and send it
 os.system(f"python3 reposell.py {date:%Y-%m-%d} >> bonds/loading.log")
-# os.system(f"python3 sendmail.py {date:%Y-%m-%d} >> bonds/loading.log")
+
+mailArg = f"-mail:settings/.reposell.mail.json"
+attachmentArg = f"-attachment:bonds/reports/funnel{date:%Y%m%d}.xls"
+dateArg = f'"{date:%d} {month_name2[date.month]}"'
+os.system(f"python3 sendmail.py {mailArg} {attachmentArg} {dateArg} >> bonds/loading.log")
 

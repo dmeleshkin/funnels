@@ -19,7 +19,6 @@ def getToken() -> str:
 	with open("settings/.token") as f:
 		return f.read().strip()
 
-print(mailSettings)
 if os.path.exists(mailSettings):
 	with open(mailSettings, "r") as f:
 		mailParams = json.load(f)
