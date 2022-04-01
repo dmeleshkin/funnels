@@ -121,7 +121,7 @@ with ZipFile(f"bonds/funnel{date:%Y%m}.zip", "a", ZIP_DEFLATED) as z:
 os.system(f"python3 reposell.py {date:%Y-%m-%d} >> bonds/loading.log")
 
 mailArg = f"-mail:settings/.reposell.mail.json"
-attachmentArg = f"-attachment:bonds/reports/funnel{date:%Y%m%d}.xls"
+attachmentArg = f"-attachment:bonds/reports/funnel{date:%Y%m%d}.xlsx"
 dateArg = f'"{date:%d} {month_name2[date.month]}"'
 os.system(f"python3 sendmail.py {mailArg} {attachmentArg} {dateArg} >> bonds/loading.log")
 
